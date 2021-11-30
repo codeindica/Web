@@ -1,0 +1,1 @@
+export const LINK_VALUE = "LINK_VALUE";

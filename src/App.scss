@@ -1,0 +1,17 @@
+body {
+  background-color: #f9f9f9;
+}
+
+.header {
+  background: #033d6d;
+  ul li{
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .small-devices {
+    justify-content: center !important;
+    align-items: center !important;
+  }
+}
