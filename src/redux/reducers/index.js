@@ -1,7 +1,8 @@
-import {LINK_VALUE} from '../actions/types';
+import {LINK_VALUE, SAVE_TOKEN} from '../actions/types';
 
 const initialState = {
   linkValue: '',
+  token: ''
 };
 
 const RootReducer = (state = initialState, action) => {
@@ -10,6 +11,11 @@ const RootReducer = (state = initialState, action) => {
       return {
         ...state,
         linkValue: action.payload,
+      };
+    case SAVE_TOKEN:
+      return {
+        ...state,
+        token: action.payload,
       };
 
     default:

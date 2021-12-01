@@ -1,11 +1,7 @@
 import { createStore } from "redux";
 import RootReducer from "./reducers";
 
-const store = createStore(RootReducer); // First Step
-
-console.log('initial state', store.getState()); // Second Step
-const unsubscribe = store.subscribe(()=> console.log('Updated state', store.getState())) // Third State
-store.dispatch();
-unsubscribe();
+const store = createStore(RootReducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()); // First Step
 
 export default store;
+

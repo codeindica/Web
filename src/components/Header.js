@@ -1,35 +1,29 @@
-import React,{useState} from 'react'
-import { connect } from 'react-redux'
+import React from 'react'
+import { useSelector,useDispatch } from 'react-redux'
 import { Links } from '../dataSource/data'
-import { goToLink } from '../redux/actions'
+import { updateLinkValue } from '../redux/actions'
+import logo from '../assets/snaps/logo.png'
 
-function Header(props) {
+
+function Header() {
+  const dispatch = useDispatch();
+  const value = useSelector(state=>state.linkValue) || 0;
   return (
-    <div className="header p-1 d-flex flex-wrap justify-content-between align-items-center small-devices">
-      <h5 className="text-white text-center p-3 m-0">te {props.linkValue}</h5>
-      <ul className="d-flex justify-content-around list-unstyled m-0 p-2">
+    <div className="header px-3 d-flex flex-wrap justify-content-between align-items-center small-devices">
+      <div className="d-flex justify-content-center align-items-center">
+        <img src={logo} className="logo" alt=""/>
+        <p className="text-center text-white m-0" onClick={()=> dispatch(updateLinkValue(0))}>Code<span className="font-weight-bold">Indica</span></p>
+      </div>
+      <ul className="d-flex justify-content-around list-unstyled m-1 p-2">
         {Links.map(item=>
-          <li
+          <li style={{color: value === item.id ? '#70f7c4': 'white'}}
             key={item.id}
-            className="mx-3 text-white text-uppercase small font-weight-bold"
-            onClick={()=> props.goToLink}>{item.title}
+            className="mx-2 text-uppercase small font-weight-bold"
+            onClick={()=> dispatch(updateLinkValue(item.value))}>{item.title}
           </li>
         )}
       </ul>
     </div>
   )
 }
-
-const mapStateToProps = state =>{
-  return {
-    linkValue: state.linkValue
-  }
-}
-
-const mapDispatchToProps = dispatch =>{
-  return {
-    goToLink:()=> dispatch(goToLink())
-  }
-}
-
-export default connect (mapStateToProps,mapDispatchToProps)(Header);
+export default Header;
