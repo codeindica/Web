@@ -3,7 +3,14 @@ $brandColor: #1e2d40;
 $highlight: #70f7c4;
 
 body {
-  background-color: $brandColor;
+  background: linear-gradient(
+    45deg, orange, #df3463);
+}
+
+.lgr {
+  background: linear-gradient(
+    45deg, orange, #df3463);
+
 }
 
 ::-webkit-scrollbar {
@@ -12,7 +19,8 @@ body {
 }
 
 .header {
-  background: $brandColor;
+  background: linear-gradient(
+    45deg, orange, #df3463);
   height: 10vh;
   .logo {
     width: 60px;
@@ -36,13 +44,14 @@ body {
 
 .banner {
   height: 90vh;
-  background-color: $brandColor;
+  background: linear-gradient(
+    45deg, orange, #df3463);
   background-image: url('../src/assets/snaps/bg.png');
   background-position: center right;
   background-size: 300px;
   background-repeat: no-repeat;
   h1 {
-    color: $highlight;
+    color: #fff;
   }
 }
 

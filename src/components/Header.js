@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector,useDispatch } from 'react-redux'
 import { Links } from '../dataSource/data'
 import { updateLinkValue } from '../redux/actions'
-import logo from '../assets/snaps/logo.png'
+import logo from '../assets/snaps/logoTrans.png'
 
 
 function Header() {
